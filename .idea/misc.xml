@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PhpServers">
-    <option name="servers">
-      <server host="localhost" name="Xdebug" />
-    </option>
-  </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
@@ -37,8 +32,5 @@
     </entry>
   </component>
   <component name="ProjectRootManager" version="2" />
-  <component name="SvnConfiguration" SSL_PROTOCOLS="all">
-    <configuration useDefault="false">$USER_HOME$/.subversion</configuration>
-  </component>
 </project>
 

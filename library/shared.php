@@ -48,22 +48,17 @@ function unregisterGlobals() {
 
 function callHook() {
     global $url;
-
-    $urlArray = array();
     $urlArray = explode("/",$url);
-
-    $controller = $urlArray[0];
+    $controller = isset($urlArray[1]) && $urlArray[1] !== null ? $urlArray[1] : 'Car' ;
     array_shift($urlArray);
-    $action = $urlArray[0];
+    $action = isset($urlArray[1]) && $urlArray[1] !== null ? $urlArray[1] : 'index' ;
     array_shift($urlArray);
-    $queryString = $urlArray;
-
+    $queryString = isset($urlArray) && $urlArray !== null ? $urlArray : '' ;;
     $controllerName = $controller;
     $controller = ucwords($controller);
     $model = rtrim($controller, 's');
     $controller .= 'Controller';
-    $dispatch = new $controller($model,$controllerName,$action);
-
+    $dispatch = new $controller($controllerName,$action,$model);
     if ((int)method_exists($controller, $action)) {
         call_user_func_array(array($dispatch,$action),$queryString);
     } else {
